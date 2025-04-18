@@ -30,5 +30,26 @@ public class StudentOperations {
         }
     }
 
+    public void addStudent() throws InvalidStudentDataException {
+        sc.nextLine(); // clear buffer
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter PRN: ");
+        String prn = sc.nextLine();
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+
+        // Validations
+        if (name.isEmpty() || prn.isEmpty()) {
+            throw new InvalidStudentDataException("Name or PRN cannot be empty");
+        }
+        if (age <= 0 || age > 100) {
+            throw new InvalidStudentDataException("Invalid Age");
+        }
+
+        students.add(new Student(name, prn, age));
+        System.out.println("Student added successfully!");
+    }
+
     
 }

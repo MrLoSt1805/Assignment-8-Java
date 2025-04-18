@@ -51,5 +51,14 @@ public class StudentOperations {
         System.out.println("Student added successfully!");
     }
 
+    public void displayStudents() throws InvalidStudentDataException {
+        if (students.isEmpty()) {
+            throw new InvalidStudentDataException("No student data available.");
+        }
+        for (Student s : students) {
+            System.out.println(s);
+        }
+    }
+
     
 }

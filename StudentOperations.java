@@ -60,5 +60,16 @@ public class StudentOperations {
         }
     }
 
-    
+    public void searchStudent() throws InvalidStudentDataException {
+        sc.nextLine(); // clear buffer
+        System.out.print("Enter PRN to search: ");
+        String prn = sc.nextLine();
+        for (Student s : students) {
+            if (s.getPrn().equals(prn)) {
+                System.out.println("Student Found: " + s);
+                return;
+            }
+        }
+        throw new InvalidStudentDataException("Student with PRN " + prn + " not found.");
+    }
 }
